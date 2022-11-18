@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site css -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='../css/style.css') }}" media="all"/>
+    <title> Prediksi Hujan di Australia </title>
+</head>
+
+<body>
+    <div class="form">
+        <h1> Prediksi Hujan di Australia </h1>
+
+        <form action="{{ url_for('predict') }}" method="post">
+            <div class = "form-group">
+                <label for="CurahHujan"> Curah Hujan (mm) </label>
+                <input type="number" name="CurahHujan" class="form-control" id="CurahHujan" placeholder="Curah Hujan" required="required">
+            </div>
+            <div class = "form-group">
+                <label for="KecepatanAngin"> Kecepatan Angin (km/h) </label>
+                <input type="number" name="KecepatanAngin" class="form-control" id="KecepatanAngin" placeholder="Kecepatan Angin" required="required">
+            </div>
+            <div class = "form-group">
+                <label for="Kelembaban"> Kelembaban Udara (%) </label>
+                <input type="number" name="Kelembaban" class="form-control" id="Kelembaban" placeholder="Kelembaban Udara" required="required">
+            </div>
+            <div class = "form-group">
+                <label for="TekananUdara" color="blue"> Tekanan Udara (hpa) </label>
+                <input type="number" name="TekananUdara" class="form-control" id="TekananUdara" placeholder="Tekanan Udara" required="required">
+            </div>
+            <div class = "form-group">
+                <label for="HariIniHujan"> Apakah Hari Ini Hujan ? </label>
+                <select class="form-control" id="HariIniHujan" name="HariIniHujan" required="required">
+                    <option>-- Ya atau Tidak --</option>
+                    <option value="0">Tidak</option>
+                    <option value="1">Ya</option>
+                </select>
+            </div>
+            <div class="card text-center">
+                <div class="card-header bg-dark text-white font-weight-bold">
+                    Prediksi Hujan pada Besok Hari :
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ prediction_text }}</p>
+                </div>
+            </div>
+            <div class="col-lg-12 text-center mt-3 mb-5">
+                <button class="btn btn-primary btn-block btn-large">Predict</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

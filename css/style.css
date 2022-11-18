@@ -1,0 +1,14 @@
+body {
+     color: #341c02;
+    background: wheat;
+     font-size: 14px;
+     font-family: poppins;
+     line-height: 1.80857;
+     font-weight: normal;
+     overflow-x: hidden;
+}
+
+button {
+    background: #341c02;
+    color: whitesmoke;
+}
